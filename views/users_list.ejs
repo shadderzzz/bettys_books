@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        h1 {
+            margin: 0;
+        }
+        main {
+            margin-top: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            margin: 10px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>User List</h1>
+    </header>
+    <main>
+        <% if (users && users.length > 0) { %>
+            <ul>
+                <% users.forEach(function(user) { %>
+                    <li>
+                        <strong><%= user.first_name %> <%= user.last_name %></strong><br>
+                        <em>Username:</em> <%= user.username %><br>
+                        <em>Email:</em> <%= user.email %>
+                    </li>
+                <% }) %>
+            </ul>
+        <% } else { %>
+            <p>No users found.</p>
+        <% } %>
+    </main>
+    <footer>
+        <p>&copy; <%= new Date().getFullYear() %> Your Shop Name. All rights reserved.</p>
+    </footer>
+</body>
+</html>
